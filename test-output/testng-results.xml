@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-26T07:05:36Z" name="Default suite" finished-at="2021-10-26T07:05:40Z" duration-ms="4042">
+  <suite started-at="2021-10-27T02:48:07Z" name="Default suite" finished-at="2021-10-27T02:48:13Z" duration-ms="5405">
     <groups>
     </groups>
-    <test started-at="2021-10-26T07:05:36Z" name="Default test" finished-at="2021-10-26T07:05:40Z" duration-ms="4042">
-      <class name="com.qa.api.gorest.tests.GetUserTest">
-        <test-method signature="getUserListAPITest()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@5c671d7f]" started-at="2021-10-26T07:05:36Z" name="getUserListAPITest" finished-at="2021-10-26T07:05:40Z" duration-ms="3449" status="PASS">
+    <test started-at="2021-10-27T02:48:07Z" name="Default test" finished-at="2021-10-27T02:48:13Z" duration-ms="5405">
+      <class name="com.qa.api.gorest.tests.CreateUserTest">
+        <test-method signature="createUserAPIPOSTTest()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@37271612]" started-at="2021-10-27T02:48:07Z" name="createUserAPIPOSTTest" finished-at="2021-10-27T02:48:13Z" duration-ms="5334" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getUserListAPITest -->
-        <test-method signature="getUserWithQueryParamsAPITest()[pri:2, instance:com.qa.api.gorest.tests.GetUserTest@5c671d7f]" started-at="2021-10-26T07:05:40Z" name="getUserWithQueryParamsAPITest" finished-at="2021-10-26T07:05:40Z" duration-ms="529" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getUserWithQueryParamsAPITest -->
-      </class> <!-- com.qa.api.gorest.tests.GetUserTest -->
+        </test-method> <!-- createUserAPIPOSTTest -->
+      </class> <!-- com.qa.api.gorest.tests.CreateUserTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
