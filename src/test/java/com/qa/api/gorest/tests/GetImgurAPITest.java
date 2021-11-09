@@ -32,7 +32,6 @@ public class GetImgurAPITest {
 		Response response = RestClient.doGet(null, "https://api.imgur.com", "/account/v1/"+accountUserName+"/block", accessToken, null, true);
 		System.out.println(response.statusCode());
 		System.out.println(response.prettyPrint());
-	}
-	
+	}	
 
 }
