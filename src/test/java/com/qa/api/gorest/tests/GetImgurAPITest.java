@@ -2,6 +2,7 @@ package com.qa.api.gorest.tests;
 
 import java.util.Map;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,8 @@ public class GetImgurAPITest {
 	String accessToken;
 	String accountUserName;
 	String refreshToken;
+	String commentSort = "newest";
+	String page = "0";
 
 	@BeforeMethod
 	public void setUp() {
@@ -23,7 +26,6 @@ public class GetImgurAPITest {
 		accessToken = tokenMap.get("access_token").toString();
 		accountUserName = tokenMap.get("account_username").toString();
 		refreshToken = tokenMap.get("refresh_token").toString();
-
 	}
 	
 	@Test(priority = 1)
@@ -40,6 +42,19 @@ public class GetImgurAPITest {
 		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/images", accessToken, null, true);
 		System.out.println(response.statusCode());
 		System.out.println(response.prettyPrint());
+	}
+	
+	@Test(priority = 3)
+	public void getComments() {
+		
+		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/comments/+commentSort+page", accessToken, null, true);
+		System.out.println(response.statusCode());
+		System.out.println(response.prettyPrint());
+		
+		String respStr = response.jsonPath().getString("data[0].comment");
+		System.out.println(respStr);
+		
+		Assert.assertEquals(respStr, "what is this ...he he h");
 	}
 	
 }
