@@ -26,7 +26,7 @@ public class GetImgurAPITest {
 
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void accountBlockStatus() {
 		
 		Response response = RestClient.doGet(null, "https://api.imgur.com", "/account/v1/"+accountUserName+"/block", accessToken, null, true);
@@ -34,4 +34,12 @@ public class GetImgurAPITest {
 		System.out.println(response.prettyPrint());
 	}	
 
+	@Test(priority = 2)
+	public void getAccountImageTest() {
+		
+		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/images", accessToken, null, true);
+		System.out.println(response.statusCode());
+		System.out.println(response.prettyPrint());
+	}
+	
 }
