@@ -10,6 +10,10 @@ import io.restassured.path.json.JsonPath;
 
 public class Token {
 	
+	public static Map<Object, Object> appTokenMap;
+	public static Map<String, String> tokenMap = new HashMap<>();
+	public static String clientid = "03d684734973921";
+	
 	public static Map<Object, Object> getAccessToken() {
 		
 		Map<String, String> formParams = new HashMap<String, String>();
@@ -29,14 +33,24 @@ public class Token {
 		
 		System.out.println(tokenJson.getMap(""));
 		
-		return tokenJson.getMap("");
+		appTokenMap = tokenJson.getMap("");
+		
+		return appTokenMap;
 		
 	}
 	
-//	public static void main(String [] ar) {
-//		getAccessToken();
-//		
-//		
-//	}
-
+	public static Map<String, String> getAuthToken() {
+		
+		String authToken = appTokenMap.get("access_token").toString();
+		System.out.println("Auth token ====> "+ authToken	);
+		tokenMap.put("Authorization", "Bearer "+authToken);		
+		return tokenMap;		
+	}
+	public static Map<String, String> getClientId() {
+		
+		System.out.println("Client ID is ====> "+ clientid	);
+		tokenMap.put("Authorization", "Client-ID "+ clientid);		
+		return tokenMap;		
+	}	
+	
 }

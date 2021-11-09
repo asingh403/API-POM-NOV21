@@ -1,5 +1,6 @@
 package com.qa.api.gorest.tests;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.testng.Assert;
@@ -29,32 +30,46 @@ public class GetImgurAPITest {
 	}
 	
 	@Test(priority = 1)
-	public void accountBlockStatus() {
-		
-		Response response = RestClient.doGet(null, "https://api.imgur.com", "/account/v1/"+accountUserName+"/block", accessToken, null, true);
+	public void getAccountBlockStatus() {
+		Map<String, String> authTokenMap = Token.getAuthToken();
+		Response response = RestClient.doGet(null, "https://api.imgur.com", "/account/v1/"+accountUserName+"/block", authTokenMap, null, true);
 		System.out.println(response.statusCode());
 		System.out.println(response.prettyPrint());
 	}	
 
 	@Test(priority = 2)
 	public void getAccountImageTest() {
-		
-		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/images", accessToken, null, true);
+		Map<String, String> authTokenMap = Token.getAuthToken();
+		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/images", authTokenMap, null, true);
 		System.out.println(response.statusCode());
 		System.out.println(response.prettyPrint());
 	}
 	
 	@Test(priority = 3)
 	public void getComments() {
-		
-		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/comments/+commentSort+page", accessToken, null, true);
+		Map<String, String> authTokenMap = Token.getAuthToken();
+		Response response = RestClient.doGet(null, "https://api.imgur.com", "/3/account/"+accountUserName+"/comments/+commentSort+page", authTokenMap, null, true);
 		System.out.println(response.statusCode());
 		System.out.println(response.prettyPrint());
 		
 		String respStr = response.jsonPath().getString("data[0].comment");
 		System.out.println(respStr);
 		
-		Assert.assertEquals(respStr, "what is this ...he he h");
+		Assert.assertEquals(respStr, "let seehttps://i.imgur.com/3LY8DmC.gif");
+	}
+	
+	@Test(priority = 4)
+	public void uploadImagePostAPITest() {
+		
+		Map<String, String> clientIdMap= Token.getClientId();		
+		Map<String, String> formMap = new HashMap<>();
+		formMap.put("title", "test title API");
+		formMap.put("description", "test title API");
+		
+		Response response = RestClient.doPost("multipart", "https://api.imgur.com", "/3/image", clientIdMap, null, true, formMap);
+		System.out.println(response.prettyPrint());
+		
+		
 	}
 	
 }

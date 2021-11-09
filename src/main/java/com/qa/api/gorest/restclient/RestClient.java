@@ -1,5 +1,6 @@
 package com.qa.api.gorest.restclient;
 
+import java.io.File;
 import java.util.Map;
 
 import com.qa.api.gorest.util.TestUtil;
@@ -32,7 +33,7 @@ public class RestClient {
 	 * @return This method is returning Response from the GET call.
 	 */
 
-	public static Response doGet(String contentType, String baseURI, String basePath, String token,
+	public static Response doGet(String contentType, String baseURI, String basePath, Map<String, String> token,
 			Map<String, String> paramsMap, boolean log) {
 		
 		if(setBaseUri(baseURI)) {
@@ -53,7 +54,7 @@ public class RestClient {
 	 * @param obj
 	 * @return This method is returning Response from the POST call.
 	 */
-	public static Response doPost(String contentType, String baseURI, String basePath, String token,
+	public static Response doPost(String contentType, String baseURI, String basePath, Map<String, String> token,
 			Map<String, String> paramsMap, boolean log, Object obj) {
 		
 		if(setBaseUri(baseURI)) {
@@ -71,9 +72,13 @@ public class RestClient {
 	 */
 	
 	public static void addRequestPayload(RequestSpecification request, Object obj) {
-		String jsonPayload = TestUtil.getSerializedJSON(obj);
-		request.body(jsonPayload);
 		
+		if(obj instanceof Map) {
+			request.formParams((Map<String, String>)obj);
+		}else {
+			String jsonPayload = TestUtil.getSerializedJSON(obj);
+			request.body(jsonPayload);			
+		}		
 	}
 	
 	private static boolean setBaseUri(String baseURI) {
@@ -93,7 +98,7 @@ public class RestClient {
 		}
 	}
 	
-	private static RequestSpecification createRequest(String contentType, String token, Map<String, String> paramMap, boolean log) {
+	private static RequestSpecification createRequest(String contentType, Map<String, String> token, Map<String, String> paramMap, boolean log) {
 		
 		RequestSpecification request;
 		
@@ -104,8 +109,9 @@ public class RestClient {
 			request = RestAssured.given();
 		}
 		
-		if(token != null) {
-			request.header("Authorization", "Bearer "+ token);
+		if(token.size()>0) {
+			//request.header("Authorization", "Bearer "+ token);
+			request.headers(token);
 		}
 		
 		if(!(paramMap == null)) {
@@ -115,14 +121,12 @@ public class RestClient {
 		if(contentType!=null) {		
 		if(contentType.equalsIgnoreCase("JSON")) {
 			request.contentType(ContentType.JSON);
-		}
-		
-		if(contentType.equalsIgnoreCase("XML")) {
+		}else if(contentType.equalsIgnoreCase("XML")) {
 			request.contentType(ContentType.XML);
-		}
-		
-		if(contentType.equalsIgnoreCase("TEXT")) {
+		}else if(contentType.equalsIgnoreCase("TEXT")) {
 			request.contentType(ContentType.TEXT);
+		}else if(contentType.equalsIgnoreCase("multipart")) {
+			request.multiPart("image", new File(".\\src\\main\\java\\com\\qa\\api\\gorest\\testdata\\imgur-test.gif"));
 		}		
 		
 	}

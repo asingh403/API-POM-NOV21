@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 import com.qa.api.gorest.restclient.RestClient;
+import com.qa.api.gorest.util.Token;
+
 import io.restassured.response.Response;
 
 public class GetUserTest {
@@ -16,9 +18,10 @@ public class GetUserTest {
 	
 	@Test
 	public void getUserListAPITest() {
+		Map<String, String> authTokenMap = new HashMap<>();
+		authTokenMap.put("Authorization", "Bearer "+token);
 		
-		Response response = RestClient.doGet("JSON", baseURI, basePath, token, null, true);
-		
+		Response response = RestClient.doGet("JSON", baseURI, basePath, authTokenMap, null, true);
 		
 		System.out.println(response.prettyPrint());
 		System.out.println(response.getStatusCode());
@@ -27,12 +30,14 @@ public class GetUserTest {
 	
 	@Test(priority = 2)
 	public void getUserWithQueryParamsAPITest() {
+		Map<String, String> authTokenMap = new HashMap<>();
+		authTokenMap.put("Authorization", "Bearer "+token);
 		
 		Map<String, String> params = new HashMap<>();
 		params.put("name", "Nina Simon");
 		params.put("gender", "male");
 		
-		Response response = RestClient.doGet("JSON", baseURI, basePath, token, params, true);
+		Response response = RestClient.doGet("JSON", baseURI, basePath, authTokenMap, params, true);
 		
 		System.out.println(response.prettyPrint());
 		System.out.println(response.getStatusCode());
