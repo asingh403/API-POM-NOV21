@@ -13,17 +13,17 @@ import io.restassured.response.Response;
 public class GetImgurAPITest {
 	
 	Map<Object, Object> tokenMap;
-	
 	String accessToken;
 	String accountUserName;
 	String refreshToken;
-	
+
 	@BeforeMethod
 	public void setUp() {
-		Token.getAccessToken();
+		tokenMap = Token.getAccessToken();
 		accessToken = tokenMap.get("access_token").toString();
 		accountUserName = tokenMap.get("account_username").toString();
 		refreshToken = tokenMap.get("refresh_token").toString();
+
 	}
 	
 	@Test

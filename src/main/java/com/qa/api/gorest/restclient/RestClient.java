@@ -112,6 +112,7 @@ public class RestClient {
 			request.queryParams(paramMap);			
 		}
 		
+		if(contentType!=null) {		
 		if(contentType.equalsIgnoreCase("JSON")) {
 			request.contentType(ContentType.JSON);
 		}
@@ -122,11 +123,11 @@ public class RestClient {
 		
 		if(contentType.equalsIgnoreCase("TEXT")) {
 			request.contentType(ContentType.TEXT);
-		}
-		
-		return request;
+		}		
 		
 	}
+		return request;
+}
 	
 	
 	private static Response getResponse(String httpMethod, RequestSpecification request, String basePath) {
