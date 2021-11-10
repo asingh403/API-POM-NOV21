@@ -5,8 +5,8 @@
 	thread-count="3">
 
 	<listeners>
-		<!--  <listener class-name="com.qa.gorest.listeners.ExtentReportListener"/> -->
-		<listener class-name="com.qa.gorest.listeners.AllureReportListener"/>
+		<listener class-name="com.qa.api.gorest.listeners.ExtentReportListener"/>
+		<!-- <listener class-name="com.qa.gorest.listeners.AllureReportListener"/> -->
 		
 		
 	</listeners>
@@ -17,6 +17,7 @@
 			<class name="com.qa.api.gorest.tests.CreateUserTest" />
 			<class name="com.qa.api.gorest.tests.GetUserTest" />
 			<class name="com.qa.api.gorest.tests.GetImgurAPITest" />
+			<class name="com.qa.api.gorest.tests.DeleteUserTest" />
 
 
 		</classes>
