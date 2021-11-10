@@ -12,3 +12,10 @@ I will develop as E2E framework along with Extent, Allure and PDF report. Which 
 ## Upload Images Or Files
 - [Multipart Utility](https://github.com/asingh403/API-POM-NOV21/blob/master/src/main/java/com/qa/api/gorest/restclient/RestClient.java)
 - [Upload - Test Case Method Name : uploadImagePostAPITest](https://github.com/asingh403/API-POM-NOV21/blob/master/src/test/java/com/qa/api/gorest/tests/GetImgurAPITest.java)
+
+## Extent Report Added
+- [Extent Report ExtentReportListener](https://github.com/asingh403/API-POM-NOV21/blob/master/src/main/java/com/qa/api/gorest/listeners/ExtentReportListener.java)
+- [TestNg - Test Suite XML](https://github.com/asingh403/API-POM-NOV21/blob/master/src/test/resources/testrunners/testng.xml)
+- [Post Execution --> HTML Report Location | Extent Report](https://github.com/asingh403/API-POM-NOV21/tree/master/build)
+
+    - ***Note: In API Testing Framework we don't add Screenshot as it is not relavent.***
