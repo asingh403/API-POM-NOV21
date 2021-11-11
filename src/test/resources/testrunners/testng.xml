@@ -5,8 +5,8 @@
 	thread-count="3">
 
 	<listeners>
-		<listener class-name="com.qa.api.gorest.listeners.ExtentReportListener"/>
-		<!-- <listener class-name="com.qa.gorest.listeners.AllureReportListener"/> -->
+	<listener class-name="com.qa.api.gorest.listeners.ExtentReportListener"/>
+		<listener class-name="com.qa.api.gorest.listeners.AllureReportListener"/>
 		
 		
 	</listeners>

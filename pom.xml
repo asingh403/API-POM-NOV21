@@ -17,6 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<aspectj.version>1.8.10</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -87,11 +88,11 @@
 
 
 
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.6</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.aspectj</groupId> -->
+		<!-- <artifactId>aspectjweaver</artifactId> -->
+		<!-- <version>1.9.6</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>com.github.scribejava</groupId>
@@ -118,6 +119,15 @@
 			<version>6.14.3</version>
 		</dependency>
 
+		<!-- Allure report dependecy START -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+
+		<!-- Allure report dependecy END -->
+
 	</dependencies>
 
 	<build>
@@ -140,10 +150,14 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 				</plugin>
-				<plugin>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.22.1</version>
-				</plugin>
+
+
+				<!-- <plugin> -->
+				<!-- <artifactId>maven-surefire-plugin</artifactId> -->
+				<!-- <version>2.22.1</version> -->
+				<!-- </plugin> -->
+
+
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>3.0.2</version>
@@ -161,10 +175,41 @@
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.7.1</version>
 				</plugin>
+
 				<plugin>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.0.0</version>
+
 				</plugin>
+
+				<!-- START adding surefire plugins and testng.xml -->
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.20</version>
+					<configuration>
+						<useSystemClassLoader>false</useSystemClassLoader>
+
+						<suiteXmlFiles>
+							<suiteXmlFile>src/test/resources/testrunners/testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+						<argLine>
+							-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+						</argLine>
+					</configuration>
+
+					<dependencies>
+						<dependency>
+							<groupId>org.aspectj</groupId>
+							<artifactId>aspectjweaver</artifactId>
+							<version>${aspectj.version}</version>
+						</dependency>
+					</dependencies>
+
+				</plugin>
+
+				<!-- START adding surefire plugins and testng.xml -->
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -196,6 +241,7 @@
 						</execution>
 					</executions>
 				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
