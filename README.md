@@ -18,4 +18,4 @@ I will develop as E2E framework along with Extent, Allure and PDF report. Which 
 - [TestNg - Test Suite XML](https://github.com/asingh403/API-POM-NOV21/blob/master/src/test/resources/testrunners/testng.xml)
 - [Post Execution --> HTML Report Location | Extent Report](https://github.com/asingh403/API-POM-NOV21/tree/master/build)
 
-🔸 ***Note: In API Testing Framework we don't add Screenshot in HTML report (Eg. Extent/Allure) as it is not relavent.***
+🔺 ***Note: In API Testing Framework we don't add Screenshot in HTML report (Eg. Extent/Allure) as it is not relavent.***
