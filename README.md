@@ -32,6 +32,6 @@ I will develop as E2E framework along with Extent, Allure and PDF report. Which 
 🔺 ***Note: In API Testing Framework we don't add Screenshot in HTML report (Eg. Extent/Allure) as it is not relavent.***
 
 - Response JSON after running TestNg.XML :
-  - [RESPONSE-JSON.docx](https://github.com/asingh403/API-POM-NOV21/files/7532454/RESPONSE-JSON.docx)
+  - [RESPONSE-JSON](https://gist.github.com/asingh403/7b34f26b664b850a74983ca782c82599)
 - After Executing Testng.XML, screenshot of **Allure HTML Report**
   ![ALLURE-REPORT](https://user-images.githubusercontent.com/36822064/141653551-db521629-13d6-4022-b879-c51a0a0cda70.JPG)
