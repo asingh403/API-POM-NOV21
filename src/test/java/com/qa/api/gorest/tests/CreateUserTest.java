@@ -10,6 +10,12 @@ import com.qa.api.gorest.util.ExcelUtil;
 import com.qa.api.gorest.util.Token;
 import com.qa.gorest.pojo.User;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 
 public class CreateUserTest {
@@ -25,6 +31,11 @@ public class CreateUserTest {
 		return userData;
 	} 
 	
+	@Epic("E-98066")
+	@Story("B-55423")
+	@Feature("Verify create new users by exposing this API Call")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Verify by using external data provide Excel sheet")
 	@Test(dataProvider = "getUserData")
 	public void createUserAPIPOSTTest(String name, String email, String gender, String dob, String status) {
 		

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Rest API regression Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>9/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Nov 11 22:08:16 IST 2021</td>
+<td>Started on:</td><td>Sat Nov 13 13:58:49 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>23 seconds (23584 ms)</td>
+<tr><td>Total time:</td><td>38 seconds (38368 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,46 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.api.gorest.tests.GetUserTest.getUserWithQueryParamsAPITest()'><b>getUserWithQueryParamsAPITest</b><br>Test class: com.qa.api.gorest.tests.GetUserTest</td>
+<td><div><pre>java.lang.AssertionError: expected [201] but found [200]
+	at com.qa.api.gorest.tests.GetUserTest.getUserWithQueryParamsAPITest(GetUserTest.java:57)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace300968732", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace300968732'><pre>java.lang.AssertionError: expected [201] but found [200]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:652)
+	at org.testng.Assert.assertEquals(Assert.java:662)
+	at com.qa.api.gorest.tests.GetUserTest.getUserWithQueryParamsAPITest(GetUserTest.java:57)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.api.gorest.tests.GetUserTest@73d3e555</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -77,48 +117,48 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.qa.api.gorest.tests.CreateUserTest.createUserAPIPOSTTest()'><b>createUserAPIPOSTTest</b><br>Test class: com.qa.api.gorest.tests.CreateUserTest<br>Parameters: Aditya Jain, aditya345b@hotmail.com, male, 25-Aug-1998, active</td>
 <td></td>
-<td>4</td>
-<td>com.qa.api.gorest.tests.CreateUserTest@6631cb64</td></tr>
+<td>18</td>
+<td>com.qa.api.gorest.tests.CreateUserTest@4eb1c69</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.CreateUserTest.createUserAPIPOSTTest()'><b>createUserAPIPOSTTest</b><br>Test class: com.qa.api.gorest.tests.CreateUserTest<br>Parameters: Priya, priya123@hotmail.com, Female, 19-Jul-1993, inactive</td>
 <td></td>
 <td>0</td>
-<td>com.qa.api.gorest.tests.CreateUserTest@6631cb64</td></tr>
+<td>com.qa.api.gorest.tests.CreateUserTest@4eb1c69</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.CreateUserTest.createUserAPIPOSTTest()'><b>createUserAPIPOSTTest</b><br>Test class: com.qa.api.gorest.tests.CreateUserTest<br>Parameters: Gaurav, gonu123k@alld.in, male, 05-Jul-1990, active</td>
 <td></td>
 <td>0</td>
-<td>com.qa.api.gorest.tests.CreateUserTest@6631cb64</td></tr>
+<td>com.qa.api.gorest.tests.CreateUserTest@4eb1c69</td></tr>
+<tr>
+<td title='com.qa.api.gorest.tests.DeleteUserTest.deleteUserById()'><b>deleteUserById</b><br>Test class: com.qa.api.gorest.tests.DeleteUserTest</td>
+<td></td>
+<td>0</td>
+<td>com.qa.api.gorest.tests.DeleteUserTest@44924587</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.GetImgurAPITest.getAccountBlockStatus()'><b>getAccountBlockStatus</b><br>Test class: com.qa.api.gorest.tests.GetImgurAPITest</td>
 <td></td>
 <td>1</td>
-<td>com.qa.api.gorest.tests.GetImgurAPITest@481e91b6</td></tr>
+<td>com.qa.api.gorest.tests.GetImgurAPITest@2b037cfc</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.GetImgurAPITest.getAccountImageTest()'><b>getAccountImageTest</b><br>Test class: com.qa.api.gorest.tests.GetImgurAPITest</td>
 <td></td>
 <td>1</td>
-<td>com.qa.api.gorest.tests.GetImgurAPITest@481e91b6</td></tr>
+<td>com.qa.api.gorest.tests.GetImgurAPITest@2b037cfc</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.GetImgurAPITest.getComments()'><b>getComments</b><br>Test class: com.qa.api.gorest.tests.GetImgurAPITest</td>
 <td></td>
-<td>3</td>
-<td>com.qa.api.gorest.tests.GetImgurAPITest@481e91b6</td></tr>
+<td>2</td>
+<td>com.qa.api.gorest.tests.GetImgurAPITest@2b037cfc</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.GetUserTest.getUserListAPITest()'><b>getUserListAPITest</b><br>Test class: com.qa.api.gorest.tests.GetUserTest</td>
 <td></td>
-<td>8</td>
-<td>com.qa.api.gorest.tests.GetUserTest@19962194</td></tr>
-<tr>
-<td title='com.qa.api.gorest.tests.GetUserTest.getUserWithQueryParamsAPITest()'><b>getUserWithQueryParamsAPITest</b><br>Test class: com.qa.api.gorest.tests.GetUserTest</td>
-<td></td>
 <td>0</td>
-<td>com.qa.api.gorest.tests.GetUserTest@19962194</td></tr>
+<td>com.qa.api.gorest.tests.GetUserTest@73d3e555</td></tr>
 <tr>
 <td title='com.qa.api.gorest.tests.GetImgurAPITest.uploadImagePostAPITest()'><b>uploadImagePostAPITest</b><br>Test class: com.qa.api.gorest.tests.GetImgurAPITest</td>
 <td></td>
-<td>3</td>
-<td>com.qa.api.gorest.tests.GetImgurAPITest@481e91b6</td></tr>
+<td>4</td>
+<td>com.qa.api.gorest.tests.GetImgurAPITest@2b037cfc</td></tr>
 </table><p>
 </body>
 </html>

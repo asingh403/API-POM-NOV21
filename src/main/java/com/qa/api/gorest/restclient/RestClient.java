@@ -65,6 +65,25 @@ public class RestClient {
 		return null;
 	}
 	
+	public static Response doDelete(String contentType, String baseURI, String basePath, Map<String, String> token,
+			Map<String, String> paramsMap, boolean log, Object obj) {
+		
+		if(setBaseUri(baseURI)) {
+			RequestSpecification request = createRequest(contentType, token, paramsMap, log);
+			addRequestPayload(request, obj);
+			return getResponse("DELETE", request, basePath);			
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Creating add payload for the doPost method
 	 * @param request

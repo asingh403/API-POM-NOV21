@@ -10,6 +10,12 @@ import org.testng.annotations.Test;
 import com.qa.api.gorest.restclient.RestClient;
 import com.qa.api.gorest.util.Token;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 
 public class GetImgurAPITest {
@@ -29,6 +35,10 @@ public class GetImgurAPITest {
 		refreshToken = tokenMap.get("refresh_token").toString();
 	}
 	
+	@Epic("E-67766")
+	@Story("B-55424")
+	@Severity(SeverityLevel.TRIVIAL)
+	@Description("Validate the api response in JSON")
 	@Test(priority = 1)
 	public void getAccountBlockStatus() {
 		Map<String, String> authTokenMap = Token.getAuthToken();
@@ -37,6 +47,11 @@ public class GetImgurAPITest {
 		System.out.println(response.prettyPrint());
 	}	
 
+	@Epic("E-67766")
+	@Story("B-55424")
+	@Feature("Validating the API Feature Image/GIF upload")
+	@Severity(SeverityLevel.MINOR)
+	@Description("Validate the Image/GIF uploaded by users")
 	@Test(priority = 2)
 	public void getAccountImageTest() {
 		Map<String, String> authTokenMap = Token.getAuthToken();
@@ -45,6 +60,11 @@ public class GetImgurAPITest {
 		System.out.println(response.prettyPrint());
 	}
 	
+	@Epic("E-98066")
+	@Story("B-55423")
+	@Feature("Validating the API for Comments made by users")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Validate the get comments services of API")
 	@Test(priority = 3)
 	public void getComments() {
 		Map<String, String> authTokenMap = Token.getAuthToken();
@@ -58,6 +78,11 @@ public class GetImgurAPITest {
 		Assert.assertEquals(respStr, "let seehttps://i.imgur.com/3LY8DmC.gif");
 	}
 	
+	@Epic("E-98066")
+	@Story("B-55423")
+	@Feature("Verify the users Image/GIF upload")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Verify Image/GIF upload by user in the service call")
 	@Test(priority = 4)
 	public void uploadImagePostAPITest() {
 		
