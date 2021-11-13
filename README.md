@@ -16,7 +16,7 @@ I will develop as E2E framework along with Extent, Allure and PDF report. Which 
 ## Extent Report Added
 - [Extent Report ExtentReportListener](https://github.com/asingh403/API-POM-NOV21/blob/master/src/main/java/com/qa/api/gorest/listeners/ExtentReportListener.java)
 - [TestNg - Test Suite XML](https://github.com/asingh403/API-POM-NOV21/blob/master/src/test/resources/testrunners/testng.xml)
-- [Post Execution --> HTML Report Location | Extent Report](https://github.com/asingh403/API-POM-NOV21/tree/master/build)👈
+- [Post Execution → HTML Report Location | Extent Report](https://github.com/asingh403/API-POM-NOV21/tree/master/build)👈
 
 
 ## Allure Report Added
